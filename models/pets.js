@@ -1,4 +1,5 @@
 // models/pets.js
+const knex = require('../db/knex');
 
 // Import the database
 const db = require('./../db/config');
@@ -26,6 +27,11 @@ Pet.findById = (id) => {
     `,
     [id]
   );
+};
+
+Pet.addPet = (name) => {
+  return knex('pets')
+  .insert({name:name})
 };
 
 // Insert a new pet with specified id

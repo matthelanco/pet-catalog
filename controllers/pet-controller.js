@@ -13,7 +13,7 @@ petController.findAll = (req, res) => {
   .then(pets => {
     // Sends the pets as a JSON object
     res.json({
-      message: 'Success',
+      message: 'success',
       data: pets
     });
   })
@@ -24,6 +24,25 @@ petController.findAll = (req, res) => {
   });
 };
 
+petController.addPet = (req, res) => {
+  const name = req.body.name;
+  console.log(name);
+  pet.addPet(name)
+  .returning('*')
+  .then((pet) => {
+    res.status(201).json({
+      message: 'success',
+      data: pet
+    });
+  })
+  .catch((err) => {
+    res.status(500).json({
+      message: 'error',
+      data: err
+    });
+  });
+};
+
 // Controller method for handling a request for a single pet
 petController.findById = (req, res) => {
   // pets method for finding by id, passes the id as an argument
@@ -31,7 +50,7 @@ petController.findById = (req, res) => {
   .then(pet => {
     // Sends the pet as a JSON object
     res.json({
-      message: "Success",
+      message: "success",
       data: pet
     });
   })
