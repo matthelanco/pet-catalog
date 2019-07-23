@@ -28,5 +28,7 @@ Pet.findById = (id) => {
   );
 };
 
+// Insert a new pet with specified id
+
 // Export the Pet object
 module.exports = Pet;
