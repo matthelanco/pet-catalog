@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import './App.css';
+import Blog from './Blog/Blog';
 
 
 class App extends Component {
@@ -25,7 +26,10 @@ class App extends Component {
 		return (
 			<div className="App">
 			<h1> Pets</h1>
+			<p> From PostgreSQL</p>
 				{pets}
+
+				<Blog/>
 			</div>
 		);
 	}

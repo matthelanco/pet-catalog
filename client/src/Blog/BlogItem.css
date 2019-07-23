@@ -1,0 +1,8 @@
+.BlogItem {
+    border: 3px solid lightblue;
+    width: 90%;
+    margin:auto;
+    background-color: lightgray;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
