@@ -1,22 +1,21 @@
 import React, {Component} from 'react';
-import * as contentful from 'contentful'
 
 import BlogItem from './BlogItem';
+import client from './../contentful';
 
 class Blog extends Component {
     state = {
         posts: []
     }
-    client = contentful.createClient({
-        space:'jxh66dyryk79',
-        accessToken:'bLQWoVyo-xnsN8uKEfR5cm-UsUiG0fB_KG1bF0f28fY'
-    });
 
     componentDidMount() {
         this.fetchPosts().then(this.setPosts);
     }
 
-    fetchPosts = () => this.client.getEntries()
+    fetchPosts = (() => {
+        return client.getEntries({content_type: 'product'});
+    });
+
     setPosts = response => {
         this.setState({
             posts:response.items

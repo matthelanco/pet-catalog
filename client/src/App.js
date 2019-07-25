@@ -3,6 +3,10 @@ import axios from 'axios';
 
 import './App.css';
 import Blog from './Blog/Blog';
+import Navbar from './Navigation/Navbar/Navbar';
+// import Sidebar from './Navigation/Sidebar/Sidebar';
+import Footer from './Navigation/Footer/Footer';
+
 
 
 class App extends Component {
@@ -25,11 +29,13 @@ class App extends Component {
 
 		return (
 			<div className="App">
+				<Navbar/>
 			<h1> Pets</h1>
 			<p> From PostgreSQL</p>
 				{pets}
 
 				<Blog/>
+				<Footer/>
 			</div>
 		);
 	}
